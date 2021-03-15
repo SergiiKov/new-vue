@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import Header from './Header.vue';
+import './theme.css'
 
 const app = createApp(App)
 
