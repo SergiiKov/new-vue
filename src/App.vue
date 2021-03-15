@@ -4,6 +4,7 @@
    <div class="container pt-1">
      <div class="card">
        <h2>Новости {{now}}</h2>
+       <span>Open {{ openRate }}</span>
      </div>
      <app-news title="This is title 1"> </app-news>
      <app-news
@@ -11,7 +12,8 @@
      :key="item.id"
      :title="item.title"
      :id="item.id"
-     :is-open="item.isOpen"> 
+     :is-open="item.isOpen"
+     @open-news="openNews"> 
 
      </app-news>
    </div>
@@ -25,6 +27,7 @@ export default {
 data() {
   return {
     now: new Date().toLocaleDateString(),
+  
     news: [
       {
         title:'Новость 1',
@@ -42,7 +45,15 @@ data() {
         isOpen: false
       }
 
-    ]
+    ],
+    openRate: 0,
+  }
+},
+methods:{
+  openNews(data) {
+    this.openRate++,
+    console.log(data)
+
   }
 },
   components:{
