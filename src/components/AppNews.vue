@@ -9,7 +9,13 @@
 
 <script>
 export default {
-props: ['title'],
+// props: ['title'],
+props: {
+    title: String,
+    id: Number
+    // isOpen: Boolean
+},
+
 data() {
  return {
     isOpen: false

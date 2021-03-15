@@ -8,8 +8,10 @@
      <app-news title="This is title 1"> </app-news>
      <app-news
      v-for="item in news" 
-     :key="item"
-     :title="item"> 
+     :key="item.id"
+     :title="item.title"
+     :id="item.id"
+     :is-open="item.isOpen"> 
 
      </app-news>
    </div>
@@ -24,9 +26,22 @@ data() {
   return {
     now: new Date().toLocaleDateString(),
     news: [
-      'Новость 1',
-      'Новость 2',
-      'Новость 3'
+      {
+        title:'Новость 1',
+        id: 1,
+        isOpen: false
+      },
+            {
+        title:'Новость 2',
+        id: 2,
+        isOpen: false
+      },
+            {
+        title:'Новость 3',
+        id: 3,
+        isOpen: false
+      }
+
     ]
   }
 },
