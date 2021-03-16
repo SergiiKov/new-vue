@@ -3,6 +3,7 @@
        <h3>{{item}}</h3>
         <h3>{{title}}</h3>
        <button class="btn" @click="open">{{ isNewsOpen ? 'Closed' : 'Open'}}</button>
+       <button class="btn danger" v-if="wasRead" @click="unmark">Not read</button>
       <div v-if="isNewsOpen"> 
         <hr />
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, dolore?</p>
@@ -32,7 +33,8 @@ if (id) {
   }
   console.warn('No parametrs id for read-news')
   return false
-  }
+  },
+  unmark: null
 //   'open-news'(num) {
 // if (num) {
 //   return true
@@ -56,6 +58,9 @@ methods: {
     mark() {
       this.isNewsOpen = false
       this.$emit('read-news', this.id)
+    },
+    unmark() {
+      this.$emit('unmark', this.id)
     }
 }
 }

@@ -15,7 +15,8 @@
      :is-open="item.isOpen"
      @open-news="openNews"
      @read-news='readNews'
-     :was-read="item.wasRead" > 
+     :was-read="item.wasRead"
+     @unmark="unreadNews" > 
      </app-news>
    </div>
 </template>
@@ -62,6 +63,11 @@ methods:{
     const idx =this.news.findIndex(news => news.id === id)
     this.news[idx].wasRead= true
     this.readRate++
+  },
+  unreadNews(id) {
+const news = this.news.find(news => news.id === id)
+news.wasRead = false
+this.readRate--
   }
 },
   components:{
