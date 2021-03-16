@@ -2,15 +2,17 @@
   <div class="card">
     <h3>{{ item }}</h3>
     <h3>{{ title }}</h3>
-    <AppButton  @action="open" :text="isNewsOpen ? 'Closed' : 'Open'"></AppButton>
-    <AppButton :color="'danger'" v-if="wasRead" @action="unmark" text="Not read"></AppButton>
+    <AppButton  @action="open">
+      {{isNewsOpen ? 'Closed' : 'Open'}}
+    </AppButton>
+    <AppButton :color="'danger'" v-if="wasRead" @action="unmark">Not read</AppButton>
     <div v-if="isNewsOpen">
       <hr />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
         dolore?
       </p>
-      <AppButton text="Read news" v-if="!wasRead" color="primary" @action="mark"></AppButton>
+      <AppButton v-if="!wasRead" color="primary" @action="mark">Read news</AppButton>
     </div>
   </div>
 </template>
